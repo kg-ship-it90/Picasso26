@@ -1,10 +1,26 @@
 {
-  "appName": "Officemanager2026",
+  "appName": "Picasso26",
   "appVersion": "2.8.0",
   "schemaVersion": "2.0.0",
-  "packageVersion": "2026.09.15.1789459648",
-  "exportedAt": "2026-09-15T08:07:28.418Z",
-  "scriptsCount": 0,
+  "packageVersion": "2026.09.15.1789450522",
+  "exportedAt": "2026-09-15T05:35:22.533Z",
+  "scriptsCount": 1,
   "note": [
+    "1. Script Chưa Đặt Tên (v1.0.0)"
+  ],
+  "scripts": [
+    {
+      "code": "Hello!",
+      "enabled": true,
+      "grants": [],
+      "id": "script_1789450489429",
+      "matches": [
+        "*://*/*"
+      ],
+      "name": "Script Chưa Đặt Tên",
+      "runAt": "document-idle",
+      "updatedAt": 1789450520940,
+      "version": "1.0.0"
+    }
   ]
 }
