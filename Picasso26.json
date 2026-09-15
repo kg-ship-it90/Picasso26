@@ -6,21 +6,5 @@
   "exportedAt": "2026-09-15T08:07:28.418Z",
   "scriptsCount": 1,
   "note": [
-    "1. Script Chưa Đặt Tên (v1.0.0)"
-  ],
-  "scripts": [
-    {
-      "code": "Hello!",
-      "enabled": true,
-      "grants": [],
-      "id": "script_1789450489429",
-      "matches": [
-        "*://*/*"
-      ],
-      "name": "Script Chưa Đặt Tên",
-      "runAt": "document-idle",
-      "updatedAt": 1789450520940,
-      "version": "1.0.0"
-    }
   ]
 }
