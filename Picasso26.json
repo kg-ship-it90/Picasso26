@@ -2,14 +2,15 @@
   "appName": "Officemanager2026",
   "appVersion": "2.8.0",
   "schemaVersion": "2.0.0",
-  "packageVersion": "2026.09.17.1789647351",
-  "exportedAt": "2026-09-17T12:15:51.228Z",
-  "scriptsCount": 4,
+  "packageVersion": "2026.09.19.1789789923",
+  "exportedAt": "2026-09-19T03:52:03.903Z",
+  "scriptsCount": 5,
   "note": [
     "1. VN Flag (v1.0.4)",
     "2. ID_A4 (v1.1.1)",
     "3. AUTO_CAPCHA (v3.2.0)",
-    "4. Hi (v1.2.0)"
+    "4. Hi (v1.2.0)",
+    "5. Thêm gợi ý giờ In tờ điều trị (Phan Đình Huy) (v1.0.1)"
   ],
   "scripts": [
     {
@@ -71,6 +72,21 @@
       "runAt": "document-idle",
       "updatedAt": 1789647328045,
       "version": "1.2.0"
+    },
+    {
+      "code": "// ==UserScript==\n// @name         Thêm gợi ý giờ In tờ điều trị (Phan Đình Huy)\n// @version      1.0.1\n// @match        https://bvdkkiengiang.vnpthis.vn/*\n// @run-at       document-idle\n// @grant        GM_addStyle\n// ==/UserScript==\n\n(function () {\n    'use strict';\n\n    // 1. Kiểm tra tài khoản hiện tại\n    function isTargetUser() {\n        const userElement = document.querySelector('.header_right a.mau');\n        return userElement && userElement.textContent.trim().includes('Phan Đình Huy');\n    }\n\n    // 2. CSS giao diện: Giữ nguyên border 1px và box-sizing để kích thước không đổi\n    GM_addStyle(`\n        .quick-time-tags {\n            display: flex;\n            gap: 6px;\n            margin-top: 5px;\n            flex-wrap: wrap;\n        }\n        .quick-time-btn {\n            box-sizing: border-box;\n            font-size: 11px;\n            padding: 2px 7px;\n            border-radius: 4px;\n            background-color: #e9ecef;\n            color: #333;\n            border: 1px solid #ced4da;\n            cursor: pointer;\n            user-select: none;\n            line-height: 1.5;\n            display: inline-block;\n            transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;\n        }\n        .quick-time-btn:hover {\n            background-color: #dee2e6;\n            color: #000;\n        }\n        /* Trạng thái được chọn: xanh dương, chữ trắng, không đổi padding/border */\n        .quick-time-btn.active {\n            background-color: #007bff !important;\n            color: #ffffff !important;\n            border-color: #007bff !important;\n            font-weight: 500;\n        }\n    `);\n\n    // 3. Gán giá trị và phát sự kiện form\n    function setInputValue(input, val) {\n        if (!input) return;\n        input.value = val;\n        input.dispatchEvent(new Event('input', { bubbles: true }));\n        input.dispatchEvent(new Event('change', { bubbles: true }));\n    }\n\n    // 4. Tạo cụm nút tag bấm nhanh\n    function createTagGroup(targetInputId, times) {\n        const container = document.createElement('div');\n        container.className = 'quick-time-tags';\n\n        times.forEach(time => {\n            const btn = document.createElement('span');\n            btn.className = 'quick-time-btn';\n            btn.textContent = time;\n            btn.title = `Chọn nhanh ${time}`;\n\n            btn.onclick = (e) => {\n                e.preventDefault();\n                \n                // Bỏ active của các nút anh em trong cùng nhóm\n                const siblings = container.querySelectorAll('.quick-time-btn');\n                siblings.forEach(s => s.classList.remove('active'));\n                \n                // Đánh dấu active cho nút vừa bấm\n                btn.classList.add('active');\n\n                // Cập nhật giá trị vào ô input\n                const targetInput = document.getElementById(targetInputId);\n                setInputValue(targetInput, time);\n            };\n\n            container.appendChild(btn);\n        });\n\n        return container;\n    }\n\n    // 5. Chèn tag vào Modal\n    function injectQuickTags() {\n        const modal = document.getElementById('in-to-dieu-tri-theo-thoi-gian-modal');\n        if (!modal) return;\n\n        const isVisible = modal.classList.contains('show') || modal.style.display === 'block';\n        if (!isVisible) return;\n\n        // Ô 'Từ giờ'\n        const fromHourInput = modal.querySelector('#in-to-dieu-tri-from-hour');\n        if (fromHourInput && !modal.querySelector('.from-quick-tags')) {\n            const group = fromHourInput.closest('.form-group');\n            if (group) {\n                const tagEl = createTagGroup('in-to-dieu-tri-from-hour', ['07:00:00', '10:00:00', '22:00:00']);\n                tagEl.classList.add('from-quick-tags');\n                group.appendChild(tagEl);\n            }\n        }\n\n        // Ô 'Đến giờ'\n        const toHourInput = modal.querySelector('#in-to-dieu-tri-to-hour');\n        if (toHourInput && !modal.querySelector('.to-quick-tags')) {\n            const group = toHourInput.closest('.form-group');\n            if (group) {\n                const tagEl = createTagGroup('in-to-dieu-tri-to-hour', ['08:00:00', '16:00:00', '04:00:00']);\n                tagEl.classList.add('to-quick-tags');\n                group.appendChild(tagEl);\n            }\n        }\n    }\n\n    // 6. Lắng nghe xuất hiện modal\n    const observer = new MutationObserver(() => {\n        if (!isTargetUser()) return;\n        injectQuickTags();\n    });\n\n    observer.observe(document.body, {\n        childList: true,\n        subtree: true,\n        attributes: true,\n        attributeFilter: ['class', 'style']\n    });\n})();",
+      "enabled": true,
+      "grants": [
+        "GM_addStyle"
+      ],
+      "id": "script_1789789579226",
+      "matches": [
+        "https://bvdkkiengiang.vnpthis.vn/*"
+      ],
+      "name": "Thêm gợi ý giờ In tờ điều trị (Phan Đình Huy)",
+      "runAt": "document-idle",
+      "updatedAt": 1789789832150,
+      "version": "1.0.1"
     }
   ]
 }
