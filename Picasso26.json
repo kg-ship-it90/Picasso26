@@ -2,13 +2,13 @@
   "appName": "Officemanager2026",
   "appVersion": "2.8.0",
   "schemaVersion": "2.0.0",
-  "packageVersion": "2026.09.30.1790790971",
-  "exportedAt": "2026-09-30T17:56:11.596Z",
+  "packageVersion": "2026.09.30.1790791388",
+  "exportedAt": "2026-09-30T18:03:08.419Z",
   "scriptsCount": 3,
   "note": [
-    "1. Crimson Red (v1.1.1)",
-    "2. Ocean Blue (v4.6.0)",
-    "3. Emerald Green (v2.2.4)"
+    "1. Crimson Red_ID_A4 (v1.1.1)",
+    "2. Ocean Blue_AUTO_Alt + Shift(option) + I/O (Safe Clean Mode) (v4.6.0)",
+    "3. Emerald Green_HIS FOLLOW (Strict Scope - Only list_benhnhan Grid) (v2.2.4)"
   ],
   "scripts": [
     {
