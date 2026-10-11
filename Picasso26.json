@@ -65,7 +65,7 @@
       ],
       "id": "script_1791728464292",
       "matches": [
-        "*://*/web_his/*"
+        "*://*/*"
       ],
       "name": "Amber Gold",
       "runAt": "document-idle",
