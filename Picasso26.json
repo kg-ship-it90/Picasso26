@@ -2,8 +2,8 @@
   "appName": "Officemanager2026",
   "appVersion": "2.8.0",
   "schemaVersion": "2.0.0",
-  "packageVersion": "2026.10.16.1792136348",
-  "exportedAt": "2026-10-16T07:39:08.403Z",
+  "packageVersion": "2026.10.16.1792145909",
+  "exportedAt": "2026-10-16T10:18:29.071Z",
   "scriptsCount": 6,
   "note": [
     "1. Crimson Red_ID_A4 (v1.1.1)",
@@ -25,7 +25,10 @@
         "*://*/*"
       ],
       "name": "Crimson Red",
+      "order_tag": 0,
       "runAt": "document-idle",
+      "sectionId": "sec_default",
+      "section_tag": "Picasso26",
       "updatedAt": 1789455737082,
       "version": "1.1.1"
     },
@@ -40,7 +43,10 @@
         "*://*/*"
       ],
       "name": "Ocean Blue",
+      "order_tag": 1,
       "runAt": "document-idle",
+      "sectionId": "sec_default",
+      "section_tag": "Picasso26",
       "updatedAt": 1789455751297,
       "version": "3.2.0"
     },
@@ -55,7 +61,10 @@
         "*://*/*"
       ],
       "name": "Emerald Green",
+      "order_tag": 2,
       "runAt": "document-idle",
+      "sectionId": "sec_default",
+      "section_tag": "Picasso26",
       "updatedAt": 1790789642585,
       "version": "4.6.0"
     },
@@ -70,7 +79,10 @@
         "*://*/*"
       ],
       "name": "Amber Gold",
+      "order_tag": 4,
       "runAt": "document-end",
+      "sectionId": "sec_default",
+      "section_tag": "Picasso26",
       "updatedAt": 1791298095410,
       "version": "2.3.0"
     },
@@ -85,7 +97,10 @@
         "*://*/web_his/*"
       ],
       "name": "Neon Purple",
+      "order_tag": 3,
       "runAt": "document-idle",
+      "sectionId": "sec_default",
+      "section_tag": "Picasso26",
       "updatedAt": 1791987632768,
       "version": "3.3.0"
     },
@@ -100,7 +115,10 @@
         "https://icu26.netlify.app/*"
       ],
       "name": "Hot Pink",
+      "order_tag": 5,
       "runAt": "document-idle",
+      "sectionId": "sec_default",
+      "section_tag": "Picasso26",
       "updatedAt": 1792124677702,
       "version": "1.0.0"
     }
